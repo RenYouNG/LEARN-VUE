@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--指令：v-html，v-text 属性解析变量
+				v-html：能解析标记
+				vtext：不能解析标记
+		-->
+		<div id="app">
+			{{msg}}
+			<div v-html="msg"></div>
+			<div v-text="msg"></div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'<b>this is a test</b>'
+				}
+			})
+		</script>
+	</body>
+</html>

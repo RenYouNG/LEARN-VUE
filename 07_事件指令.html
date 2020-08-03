@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.grand{
+				width: 200px;
+				height:200px;
+				background: #0000FF;
+			}
+			.father{
+				width: 100px;
+				height:100px;
+				background: #cbff92;
+			}
+			.son{
+				width: 50px;
+				height:50px;
+				background: #ff0707;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 事件触发，v-on:click,@click -->
+			<button v-on:click="count=count+1">{{count}}</button>
+			<!-- 缩写：@click -->
+			<button @click="count2++">{{count2}}</button>
+			<!-- 调用方法并传值 -->
+			<button @click="play('good')">调用方法并且传值</button>
+			<button @click="run">调用方法不传值</button>
+			<!-- 事件的修饰符：
+			.stop:阻止冒泡(js:e.stopPropagation)：冒泡触发子元素事件依次触发父级事件叫冒泡
+			.prevent：阻止默认行为 js：e.preventDefault()
+			.self：将事件绑定到自身 只有自身触发
+			.once:只触发一次事件
+			 -->
+			 <!-- (1)阻止默认行为-->
+			 <a href="http://www.sohu.com" @click.prevent="run">调用方法</a>
+			 <!-- (2)阻止冒泡-->
+			 <div class="grand" @click="play('OK')">A
+				 <div class="father" @click.stop="run">B
+					 <div class="son" @click.stop="demo">C</div>
+				 </div>
+			 </div>
+			 <!-- (3)阻止冒泡self-->
+			 <div class="grand" @click="play('OK')">A
+			 				 <div class="father" @click.self="run">B
+			 					 <div class="son" @click.once="demo">C</div>
+			 				 </div>
+			 </div>
+		</div>
+		<!-- 1、引入VUE框架 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					count:1,
+					count2:1,
+					msg:'very '
+				},
+				methods:{
+/* 					play:function(x){
+						alert(this.msg+x);
+					} */
+					play(x){
+						alert(this.msg+x);
+					},
+					run(x){
+						alert(this.msg+'haha');
+					},
+					demo(x){
+						alert('lala')
+					}
+				}
+				})
+		</script>
+	</body>
+</html>
