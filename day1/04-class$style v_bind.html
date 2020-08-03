@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.red{
+				color:red
+			}
+			.big{
+				font-size: 30px;
+			}
+			.blue{
+				color:blue
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="red big">wow</div>
+			<!--:class使用（重要）-->
+			<!--(1)对象写法（重要）red,big class名称-->
+			<div :class="{red:1==1,big:true}">文本内容</div>
+			<!-- red:1==1 -->
+			<!--(2)数组写法-->
+			<div :class="[msg1,msg2]">文本内容</div>
+			
+			<div style="color:#0f0;font-size:45px">行内样式文本</div>
+			<!-- (1)对象写法 color,fontSize css属性 -->
+			<div :style="{color:color,fontSize:font}">行内样式文本</div>
+			<!--(2)数组写法-->
+			<div :style="[msg3]">lala</div>
+			<!--style的使用-->
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					msg1:'blue',
+					msg2:'big',//class名称的值
+					color:'#0f0',//style 的中 color和fontSize的属性值
+					font:'45px',
+					msg3:{
+						color:'#f0f',
+						border:'1px solid #f00',
+						fontSize:'45px'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

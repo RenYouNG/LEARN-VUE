@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue引入</title>
+	</head>
+	<body>
+		<div id="app">
+			<!--文本插值 (数据绑定)-->
+			{{str}}
+			{{num+3}}
+			<!--练习2：三元条件 bool为值输出为ok，否则输出为error-->
+			{{bool?'OK':'error'}}
+			<!--写js代码不推荐-->
+			{{
+				arr.join('|')
+			}}
+		</div>
+		<!--练习：将变量是haha的文本，写到<div id="app"></div>的标记中-->
+		<!-- 1、引入VUE框架 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			//2.用js实现
+			//var str='haha';
+			//document.getElementById('app').innerHTML=str;
+			//document.querySelector('#app').innerHTML=str;
+			//2.vue实现
+			new Vue({
+				el:'#app',
+				data:{
+					str:'happy',
+					num:5,
+					bool:true,
+					arr:['a','b','c','d']
+				}
+			});
+		</script>
+	</body>
+</html>

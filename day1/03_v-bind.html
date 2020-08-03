@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<a href="http://www.sohu.com">连接到搜狐</a>
+			<a v-bind:href="url" v-bind:title="title">连接到sohu</a>
+			<!--练习：解析图像属性中的变量-->
+			<img src="mi1.jpg" width="100" height="50">
+			
+			<img v-bind:src="urlImg" width="100" height="50">
+			<!--vbind：缩写形式《重要重要》-->
+			<img :src="urlImg" width="100" height="50">
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'hello',
+					url:'http://www.sohu.com',
+					title:'sohu',
+					urlImg:'mi1.jpg'
+				}
+			})
+		</script>
+	</body>
+</html>

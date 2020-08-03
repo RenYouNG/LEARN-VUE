@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 指令：v-if v-else v-else-if -->
+			<!-- 1.单分支语句 -->
+			<div v-if="str=='ok'">this is ok</div>
+			<!-- 2.双分支语句 Math.random（）随机[0,1)小数 -->
+			{{num}}
+			<div v-if="num>0.5">大于0.5的随机数</div>
+			<div v-else>小于0.5的随机数</div>
+			<!-- 3.多分支语句 -->
+			<div v-if="type='A'">A</div>
+			<div v-else-if="type='B'">B</div>
+			<div v-else-if="type='C'">C</div>
+			<div v-else-if="type='D'">D</div>
+			<div v-else>非A|B|C|D</div>
+		</div>
+		<!--练习：将变量是haha的文本，写到<div id="app"></div>的标记中-->
+		<!-- 1、引入VUE框架 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					str:'ok',
+					type:'C',
+					num:Math.random()
+				}
+				
+			})
+	</body>
+</html>

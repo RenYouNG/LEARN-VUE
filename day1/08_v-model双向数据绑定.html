@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-model 双向数据绑定，在表单元素中使用 -->
+			<input type="text" v-model="msg" />
+			{{msg}}
+			<!-- v-model 语法糖： :value(数据绑定)和@input(事件监听)实现的 -->
+			<input type="text" :value="msg2" @input="play">
+			{{msg2}}
+			<input type="radio" v-model="sex" value="man">男
+			<input type="radio" v-model="sex" value="woman">女
+			<input type="radio" v-model="sex" value="sercet">保密
+			{{sex}}
+			<!-- 复选框 -->
+			<input type="checkbox" v-model="tags" value="爬山">爬山
+			<input type="checkbox" v-model="tags" value="逛街">逛街
+			<input type="checkbox" v-model="tags" value="吃鸡">吃鸡
+			<input type="checkbox" v-model="tags" value="打游戏">打游戏
+			{{tags}}
+		</div>
+		<!-- 1、引入VUE框架 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'hello',
+					msg2:'good',
+					sex:'sercet',
+					tags:['吃鸡']
+				},
+				methods:{
+					//event事件对象简写e e事件对象
+					play(e){
+						// 修改msg2里的值,拿到value属性中的新值
+						this.msg2=e.target.value
+						//console.log(e.target) 
+					/* 	e事件对象, e.target能拿到<input type="text"> 的dom元素
+						可以访问value属性 e.target.value */
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1.循环渲染v-for -->
+			<ul>
+				<li v-for="(item,key) in arr">
+					{{key}}---{{item}}
+				</li>
+			</ul>
+			<!-- 2.一行对象信息 -->
+			<ul>
+				<li v-for="(item,key,index) in obj">
+					{{index}}---{{key}}---{{item}}
+				</li>
+			</ul>
+			<!-- 3.循环遍历二维数组：item每行的对象信息 -->
+			<ul>
+				<li v-for="(item,key) in infos" :key="key">
+					{{item.title}}---{{item.price}}
+				</li>
+			</ul>
+		</div>
+		<!-- 1、引入VUE框架 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					arr:['a','b','c','d'],
+					obj:{
+						user:'tom',
+						age:18,
+						addr:'北京'
+					},
+					infos:[
+						{title:'xiaomi',price:2000},
+						{title:'huawei',price:2100},
+						{title:'Lenovo',price:2200},
+						{title:'iphone',price:3300}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
