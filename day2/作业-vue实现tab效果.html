@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			ul,ol{
+				list-style:none;
+			}
+			/* 弹性布局 :关键(百分比的分栏)*/
+			.tab{
+				display:flex; /*行布局*/
+			}
+			.titles{
+				/* width:20%; */
+				width:200px;
+				margin-right:10px;
+				
+			}
+			.titles li{
+				line-height: 35px;
+				border-right:1px solid #ccc;
+				border-bottom:1px solid #ccc;
+				text-align: center;
+			}
+			.titles li.active{
+				color:#f60;
+				border-right:0;
+			}
+			.con{
+				/* width:80%; */
+				flex:1;/*剩下的宽占满*/
+				background-color: #eee;
+				
+			}
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>

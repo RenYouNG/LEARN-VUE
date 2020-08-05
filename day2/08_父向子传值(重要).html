@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.red{
+				color:#f00;
+			}
+			.blue{
+				color:#00f;
+			}
+			.green{
+				color:#0f0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<son fa="blue"></son>
+		    <son :fa="color"></son>
+			<son></son>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			/*父向子传值: props实现（重要重要）*/ 
+			var son ={
+				props:{  // props 接收父组件中 fa 数据
+					fa:{
+						type:String,
+						default:'green'
+					}
+				},
+				template:'<div :class="fa">子组件</div>'
+			}
+			new Vue({
+				el:'#app',
+				data:{
+					color:'red'
+				},
+				components:{
+					son
+				}
+			})
+		</script>
+	</body>
+</html>
+

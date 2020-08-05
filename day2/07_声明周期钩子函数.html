@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- <keep-alive></keep-alive> ：组件的停用或启用(将停用的组件,缓存机制缓存) -->
+			<button @click="bool=!bool">组件的销毁/停用或启用</button>
+			<!-- 3.用子 -->
+			<keep-alive><son v-if="bool"></son></keep-alive>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			// 声明周期钩子函数
+			// 1.生子
+			var son ={
+				data(){
+					return {
+						str:'good'
+					}
+				},
+				methods:{
+					play(){
+						this.str = 'happy';
+					}
+				},
+				template:'<div @click="play">我是子组件1{{str}}</div>',
+				beforeCreate(){
+					console.log('组件创建之前'+this.str);
+				},
+				created(){// 数据接口ajax
+					console.log('组件创建之后'+this.str);
+				},
+				beforeMount(){//数据接口ajax
+					console.log('DOM载入之前'+document.querySelector('#app').innerHTML);
+				},
+				mounted(){ //重要(DOM操作,数据接口ajax)
+					console.log('DOM载入之后'+document.querySelector('#app').innerHTML);
+				},
+				beforeUpdate(){
+					console.log('组件更新之前'+document.querySelector('#app').innerHTML);
+				},
+				updated(){
+					console.log('组件更新之后'+document.querySelector('#app').innerHTML);
+				},
+				beforeDestroy(){
+					console.log('组件销毁之前');
+				},
+				destroyed(){
+					console.log('组件销毁之后');
+				},
+				activated(){
+					console.log('组件的激活');
+				},
+				deactivated(){
+					console.log('组件的停用');
+				}
+			}
+			new Vue({
+				el:'#app',
+				data:{
+					bool:true
+				},
+				components:{
+					son //2. 挂子
+				}
+			})
+		</script>
+	</body>
+</html>

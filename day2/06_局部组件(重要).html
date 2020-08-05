@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 3.用子 -->
+			<child1></child1>
+			<child1></child1>
+            <child2></child2>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			// 局部组件:生子(定义子组件)，挂子，用子
+			// 1. 生子
+			var child1 = {
+				template:'<div>我是局部子组件1</div>'
+			}
+			var child2 ={
+				data(){//函数实现数据作用域，避免数据冲突
+					return { //返回值对象
+						str:'haha'
+					}
+				},
+				methods:{
+					play(){
+						this.str += 'happy';
+					}
+				},
+				template:'<div @click="play">我是局部组件2{{str}}</div>'
+			}
+			new Vue({
+				el:'#app',
+				data:{
+                   
+				},
+				components:{
+					child1:child1, // 2.挂子
+					child2
+				}
+			})
+		</script>
+	</body>
+</html>
+

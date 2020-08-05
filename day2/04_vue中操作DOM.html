@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box{
+				width:100px;
+				height: 100px;
+				background-color: #FF0000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1. 给标记或组件 添加 ref="名称"-->
+		     <h3 ref="myh" @click="play">标题字</h3> 
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+		var mv=	new Vue({
+				el:'#app',
+				data:{
+                    
+				},
+				methods:{
+					play(){
+						// 2. this.$refs.myh拿到 <h3 ref="myh">标题字</h3>
+						this.$refs.myh.innerHTML ='haha';
+					}
+				}
+			})
+		// 全局属性
+	    console.log(mv);
+		console.log(mv.$el); //<div id="app"></div>
+		console.log(mv.$refs.myh);// <h3 ref="myh">标题字</h3> 
+		mv.$refs.myh.innerHTML = 'happy'
+		</script>
+	</body>
+</html>
+

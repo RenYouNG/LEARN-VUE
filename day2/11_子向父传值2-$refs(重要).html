@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1. ref="名称"  -->
+			<son ref="myson"></son>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			/*子向父传值: $refs（重要）*/ 
+			var son ={
+				data(){
+					return{
+						msg:'good'
+					}
+				},
+				methods:{
+					play(){
+						alert('我是子组件方法');
+					}
+				},
+				template:'<div>子组件</div>'
+			}
+			new Vue({
+				el:'#app',
+				data:{
+					
+				},
+				components:{
+					son
+				},
+				mounted(){
+					// 2. 拿到子组件中的属性和方法
+					//this.$refs.myson 能拿到 <son ref="myson"></son>
+					alert(this.$refs.myson.msg);
+					this.$refs.myson.play();
+				}
+			})
+		</script>
+	</body>
+</html>
+

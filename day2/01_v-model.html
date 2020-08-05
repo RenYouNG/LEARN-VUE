@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 下拉列表框 -->
+			<select v-model="city">
+				<option value ="北京">北京</option>
+				<option value ="天津">天津</option>
+				<option value ="上海">上海</option>
+			</select>
+			{{city}}
+			<!-- 多行文本框 -->
+			<textarea v-model="info"></textarea>
+			{{info}}
+			<!-- 全选 -->
+			<input type="checkbox" v-model="all">{{all}}
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					city:'天津',
+					info:'简历',
+					all:true
+				}
+			})
+		</script>
+	</body>
+</html>

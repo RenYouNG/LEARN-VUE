@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.red{
+				color:#f00;
+			}
+			.blue{
+				color:#00f;
+			}
+			.green{
+				color:#0f0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<son></son>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			/*父向子传值2: $parent.方法和属性*/ 
+			var son ={
+				methods:{
+					play(){
+						alert(this.$parent.msg); // 父级组件的属性
+						this.$parent.run();//父级组件的方法
+					}
+				},
+				template:'<div @click="play">子组件</div>'
+			}
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'good'
+				},
+				methods:{
+					run(){
+						alert('我是父级组件的方法');
+					}
+				},
+				components:{
+					son
+				}
+			})
+		</script>
+	</body>
+</html>
+
